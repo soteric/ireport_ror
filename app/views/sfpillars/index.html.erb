@@ -1,0 +1,40 @@
+<% if notice %>
+<div class="alert alert-success" id="notice"><%= notice %></div>
+<% end %>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Showing Pillar</div>
+  <div class="panel-body">
+    <%= link_to '<i class="fa fa-plus-square"></i> New Pillar'.html_safe, new_sfpillar_path, class: "btn btn-success" %>
+  </div>
+  
+  <table class="table">
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>Pillar Name</td>
+        <td>Created At</td>
+        <td>Updated At</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sfpillars.each do |sfpillar| %>
+        <tr>
+          <td><%= sfpillar.id %></td>
+          <td><%= sfpillar.name %></td>
+          <td><%= sfpillar.created_at %></td>
+          <td><%= sfpillar.updated_at %></td>
+          <td>
+            <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_sfpillar_path(sfpillar.id), class: "label label-primary" %>
+            <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, sfpillar, method: :delete, data: { confirm: 'Are you sure you really want to remove this pillar?' }, class: "label label-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<br>

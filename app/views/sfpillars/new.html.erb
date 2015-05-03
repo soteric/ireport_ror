@@ -1,0 +1,13 @@
+<% if notice %>
+  <div class="alert alert-success" id="notice"><%= notice %></div>
+<% end %>
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">New Pillar</div>
+  <div class="panel-body">
+    <%= link_to 'Back', sfpillars_path %>
+    <hr>
+    <%= render 'form' %>
+  </div>
+</div>

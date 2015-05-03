@@ -1,0 +1,41 @@
+<% if notice %>
+<div class="alert alert-success" id="notice"><%= notice %></div>
+<% end %>
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Showing Project</div>
+  <div class="panel-body">
+  <%= link_to 'Back', sfprojects_path %>
+  </div>
+  
+  <table class="table">
+      <thead>
+        <td>ID</td>
+        <td>Project Name</td>
+        <td>Scope ID</td>
+        <td>Module ID</td>
+        <td>Release ID</td>
+        <td>Created At</td>
+        <td>Updated At</td>
+        <td>Actions</td>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%= @sfproject.id %></td>
+            <td><%= @sfproject.name %></td>
+            <td><%= @sfproject.scope_id %></td>
+            <td><%= @sfproject.module_id %></td>
+            <td><%= @sfproject.release_id %></td>
+            <td><%= @sfproject.created_at %></td>
+            <td><%= @sfproject.updated_at %></td>
+            <td>
+              <%= link_to '<i class="fa fa-pencil-square-o"></i> Edit'.html_safe, edit_sfproject_path, class: "label label-primary" %>
+              <%= link_to '<i class="fa fa-times"></i> Remove'.html_safe, sfproject_path, method: :delete, data: { confirm: 'It will remove all associated projects under this release. Are you sure you really want to remove this release?' }, class: "label label-danger" %>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+</div>
+
+<br>
